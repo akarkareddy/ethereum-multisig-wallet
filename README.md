@@ -10,6 +10,7 @@ This project is a basic Ethereum Multisignature Wallet built using **Solidity** 
 - **Custom Wallet**: Built-in wallet implementation handles private key management and signing.
 - **Programmatic Interaction**: The Go program interacts with the deployed contract, submitting transactions, confirming them, and executing them based on the required number of confirmations.
 
+```plaintext
 /ethereum-multisig-wallet
 ├── /api                 # REST API implementation for wallet and transaction management
 │   ├── handlers.go
@@ -33,53 +34,57 @@ This project is a basic Ethereum Multisignature Wallet built using **Solidity** 
 ├── go.MOD
 ├── go.sum
 
-
-Folder Breakdown:
-api/: Contains REST API handlers (handlers.go, routes.go) for wallet and transaction management.
-
-blockchain/: Implements Go-Ethereum logic to interact with the Sepolia testnet and the multisig contract.
-
-contracts/: Contains the Solidity smart contract (multisig.sol) for the multi-signature wallet and ABI files (multisig.abi).
-
-interact/: Provides Go code for interacting with the deployed smart contract and handling blockchain interactions.
-
-wallet/: Manages wallet creation and private key management (note: this excludes wallet_key.go).
-
-main.go: The entry point of the Go application that sets up the connection to Ethereum and interacts with the multisig contract.
+```
 
 
-Requirements
+
+
+## Folder Breakdown:
+**api/**: Contains REST API handlers (handlers.go, routes.go) for wallet and transaction management.
+
+**blockchain/** : Implements Go-Ethereum logic to interact with the Sepolia testnet and the multisig contract.
+
+**contracts/** : Contains the Solidity smart contract (multisig.sol) for the multi-signature wallet and ABI files (multisig.abi).
+
+**interact/** : Provides Go code for interacting with the deployed smart contract and handling blockchain interactions.
+
+**wallet/** : Manages wallet creation and private key management (note: this excludes wallet_key.go).
+
+**main.go** : The entry point of the Go application that sets up the connection to Ethereum and interacts with the multisig contract.
+
+
+## Requirements
 Programming Language: Go (Golang)
 
-Tools:
+**Tools**:
 
-Docker: For containerizing the application and deployment.
+**Docker** : For containerizing the application and deployment.
 
-Remix IDE: For deploying the Solidity smart contract.
+**Remix IDE** : For deploying the Solidity smart contract.
 
-Infura: For connecting to the Ethereum network (Sepolia testnet).
+**Infura** : For connecting to the Ethereum network (Sepolia testnet).
 
-Go-Ethereum (go-ethereum): For interacting with Ethereum from Go.
+**Go-Ethereum** (go-ethereum) : For interacting with Ethereum from Go.
 
-Getting Started
-1. Install Required Tools
+## Getting Started
+**1. Install Required Tools**
 Go: Download and install Go from the official Go website.
 Remix IDE: Access the Remix IDE from here.
 Infura: Create an account on Infura and obtain your API key for the Sepolia testnet.
 
-2. Clone the Repository
+**2. Clone the Repository**
 git clone https://github.com/akarkareddy/ethereum-multisig-wallet.git
 cd ethereum-multisig-wallet
-3. Initialize Go Module
+
+**3. Initialize Go Module**
 go mod init github.com/akarkareddy/ethereum-multi-sig-wallet
-4. Deploy the Smart Contract
+
+**4. Deploy the Smart Contract**
 Using Remix IDE, deploy the multisig.sol contract to the Sepolia testnet.
-
 Copy the deployed contract's contract address.
-
 Save the ABI of the contract (you will use this in the Go code).
 
-5. Update Configuration
+**5. Update Configuration**
 In the main.go file, update the following:
 
 RPC URL: Use the Infura API endpoint for Sepolia.
@@ -88,37 +93,46 @@ Private Key: Provide the private key of the wallet you will use to interact with
 
 Contract Address: Set the deployed contract address in main.go.
 
-go
-const (
+**go**
+
+const 
+
     rpcURL        = "https://sepolia.infura.io/v3/your-infura-api-key" // Infura RPC URL for Sepolia
+    
     privateKeyHex = "your-wallet-private-key"                           // Private key of the sender
+    
     contractAddr  = "deployed-contract-address"                          // Deployed multisig wallet contract address
-)
-6. Run the Application
+
+**6. Run the Application**
 To start the Go application and interact with the Ethereum network:
 
-bash
-go run main.go
+**bash**
 
-7. Test the Wallet and Transaction APIs
+    go run main.go
+
+**7. Test the Wallet and Transaction APIs**
+
 You can test the wallet and transaction functionality using Postman or curl by sending requests to http://localhost:8080/wallets for wallet creation, and http://localhost:8080/transactions for submitting and confirming transactions.
 
-Smart Contract Details
-Contract Overview
+## Smart Contract Details
+
+**Contract Overview**
+
 The smart contract is written in Solidity and contains the following key features:
 
-Wallet Creation: Allows the creation of multisig wallets with multiple owners.
+**Wallet Creation**: Allows the creation of multisig wallets with multiple owners.
 
-Transaction Submission: A transaction can be submitted by any wallet owner, requiring confirmation from other owners before execution.
+**Transaction Submission**: A transaction can be submitted by any wallet owner, requiring confirmation from other owners before execution.
 
-Transaction Execution: Once a transaction has been confirmed by the required number of owners, it is executed on the Ethereum blockchain.
+**Transaction Execution**: Once a transaction has been confirmed by the required number of owners, it is executed on the Ethereum blockchain.
 
-Contract Files
-contracts/multisig.sol: Solidity code for the multisig wallet contract.
+## Contract Files
 
-contracts/multisig.abi: ABI for interacting with the contract from the Go code.
+**contracts/multisig.sol**: Solidity code for the multisig wallet contract.
 
-interact/contract_interaction.go: Go code to interact with the deployed smart contract and submit transactions.
+**contracts/multisig.abi**: ABI for interacting with the contract from the Go code.
+
+**interact/contract_interaction.go**: Go code to interact with the deployed smart contract and submit transactions.
 
 
 ## 🛣️ Roadmap
@@ -137,7 +151,7 @@ interact/contract_interaction.go: Go code to interact with the deployed smart co
 
 **Step 7**: Extend functionality to support other Ethereum testnets/mainnet, with features like gas optimization and enhanced UI integration.
 
-Contributing
+## Contributing
 Contributions are welcome! Please follow these steps:
 
 Fork the repository.
@@ -150,7 +164,7 @@ Push to the branch (git push origin feature-branch-name).
 
 Open a pull request.
 
-License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## 🙏 Acknowledgments :
