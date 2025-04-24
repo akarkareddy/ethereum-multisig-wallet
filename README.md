@@ -10,8 +10,6 @@ This project is a basic Ethereum Multisignature Wallet built using **Solidity** 
 - **Custom Wallet**: Built-in wallet implementation handles private key management and signing.
 - **Programmatic Interaction**: The Go program interacts with the deployed contract, submitting transactions, confirming them, and executing them based on the required number of confirmations.
 
-<pre lang="markdown"> ## Project Structure <code> /ethereum-multisig-wallet ├── /api # REST API implementation for wallet and transaction management │ ├── handlers.go │ └── routes.go ├── /blockchain # Blockchain interaction logic (Go-Ethereum integration) │ ├── blockchain.go │ ├── multisig.go ├── /contracts # Solidity smart contract code and ABI files │ ├── Multisigwallet.sol │ └── multisigwallet.abi │ └── multisig.go │ └── multisig.bin ├── /interact # Go code for interacting with the smart contract on Ethereum │ ├── contract_interaction.go │ ├── contract_bytecode.txt │ ├── contract_abi.json │ └── ├── /wallet # Wallet creation and signing logic │ ├── wallet.go ├── main.go # Main application entry point to interact with the Ethereum blockchain ├── go.mod ├── go.sum </code> </pre>
-## Project Structure
 /ethereum-multisig-wallet
 ├── /api                 # REST API implementation for wallet and transaction management
 │   ├── handlers.go
@@ -22,7 +20,7 @@ This project is a basic Ethereum Multisignature Wallet built using **Solidity** 
 ├── /contracts            # Solidity smart contract code and ABI files
 │   ├── Multisigwallet.sol
 │   └── multisigwallet.abi
-|   └── multisig.go
+|   └── multisig.go 
 |   └── multisig.bin
 ├── /interact            # Go code for interacting with the smart contract on Ethereum
 │   ├── contract_interaction.go
